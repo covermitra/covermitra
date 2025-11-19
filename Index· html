@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CoverCraft — Premium Mobile Covers</title>
+  <meta name="description" content="Buy stylish, durable mobile covers. Fast shipping. Secure checkout." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f7fb; --card:#ffffff; --muted:#6b7280; --accent:#0f172a; --primary:#0b74de;
+      --glass: rgba(255,255,255,0.6);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:46px;height:46px;background:linear-gradient(135deg,var(--primary),#6c63ff);border-radius:10px;display:grid;place-items:center;color:white;font-weight:700}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    .cta{background:var(--primary);color:white;padding:10px 14px;border-radius:8px;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:28px 0}
+    .hero h1{font-size:32px;margin:0 0 12px}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+    .hero .actions{display:flex;gap:12px}
+    .hero .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+
+    /* Product grid */
+    .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:22px}
+    .product{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 6px 18px rgba(15,23,42,0.04);display:flex;flex-direction:column}
+    .prod-img{height:180px;border-radius:10px;background:#f1f5f9;display:grid;place-items:center;margin-bottom:12px}
+    .prod-title{font-weight:600;margin:0 0 6px}
+    .prod-price{font-weight:700;color:var(--primary);margin-bottom:8px}
+    .prod-meta{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:auto}
+    .btn{padding:8px 10px;border-radius:8px;border:0;background:#eef2ff;font-weight:600;cursor:pointer}
+
+    /* Footer */
+    footer{margin-top:36px;padding:22px 0;border-top:1px solid rgba(15,23,42,0.04);color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .hero .card{order:2}
+    }
+
+    /* Simple modal */
+    .modal{position:fixed;inset:0;background:rgba(2,6,23,0.5);display:none;align-items:center;justify-content:center;padding:24px}
+    .modal.open{display:flex}
+    .modal-card{background:var(--card);border-radius:12px;padding:18px;max-width:920px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .modal-close{justify-self:end;cursor:pointer}
+    @media (max-width:680px){.modal-card{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">CC</div>
+        <div>
+          <div style="font-weight:700">CoverCraft</div>
+          <div style="font-size:12px;color:var(--muted)">Premium mobile covers</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="cta" href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Stylish & durable mobile covers — protect your phone in style</h1>
+          <p>Hand-picked designs, shockproof materials, and fast shipping. Shop by model or browse our featured collection below.</p>
+          <div class="actions">
+            <a class="cta" href="#products">Shop Now</a>
+            <a href="#" style="padding:10px 14px;border-radius:8px;background:transparent;border:1px solid rgba(15,23,42,0.06);font-weight:600">Our Story</a>
+          </div>
+          <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+            <div style="background:var(--card);padding:10px;border-radius:10px;display:flex;flex-direction:column;min-width:130px">
+              <div style="font-weight:700">Free Shipping</div>
+              <div style="font-size:13px;color:var(--muted)">On orders above ₹499</div>
+            </div>
+            <div style="background:var(--card);padding:10px;border-radius:10px;display:flex;flex-direction:column;min-width:130px">
+              <div style="font-weight:700">14-Day Returns</div>
+              <div style="font-size:13px;color:var(--muted)">Hassle-free returns</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="font-weight:700;margin-bottom:8px">Featured Product</div>
+          <div style="display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center">
+            <div style="height:110px;border-radius:10px;background:#f1f5f9;display:grid;place-items:center">Image</div>
+            <div>
+              <div style="font-weight:700">Gloss Armor — iPhone 15</div>
+              <div style="color:var(--muted);font-size:14px;margin:8px 0">Slim-fit protective cover with glossy finish and shockproof corners.</div>
+              <div style="display:flex;gap:8px;align-items:center">
+                <div style="font-weight:700;color:var(--primary)">₹799</div>
+                <button class="btn" onclick="addToCart('Gloss Armor',799)">Add to cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products">
+        <h2 style="margin-top:28px">Featured Products</h2>
+        <div class="products" id="product-grid">
+          <!-- Product cards are inserted by JS. Replace images and product data as needed. -->
+        </div>
+      </section>
+
+      <section id="about" style="margin-top:28px">
+        <h3>About CoverCraft</h3>
+        <p style="color:var(--muted);max-width:760px">We design mobile covers that combine protection with personality. Founded in 2024, CoverCraft ships across India and focuses on premium materials and fast delivery.</p>
+      </section>
+
+      <section id="contact" style="margin-top:24px">
+        <h3>Contact</h3>
+        <p style="color:var(--muted)">Email: <a href="mailto:support@covercraft.example">support@covercraft.example</a> — Phone: +91 98765 43210</p>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>© <span id="year"></span> CoverCraft — All rights reserved.</div>
+        <div style="color:var(--muted);font-size:13px">Follow us on: <a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">GitHub</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Simple product modal + small cart using localStorage -->
+  <div id="modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-card" role="document">
+      <div>
+        <div style="font-weight:700;margin-bottom:8px" id="modal-title">Product</div>
+        <div id="modal-image" style="height:260px;border-radius:10px;background:#f1f5f9;display:grid;place-items:center;margin-bottom:12px">Image</div>
+        <div id="modal-desc" style="color:var(--muted)">Description</div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-weight:800;font-size:18px" id="modal-price">₹0</div>
+          <div class="modal-close" onclick="closeModal()">✕</div>
+        </div>
+
+        <div style="margin-top:12px">
+          <label style="font-size:13px;color:var(--muted)">Quantity</label>
+          <input id="qty" type="number" value="1" min="1" style="width:80px;padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);margin-top:6px">
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:8px">
+          <button class="cta" onclick="modalAddToCart()">Add to cart</button>
+          <button class="btn" onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Basic product dataset — replace with real images/IDs when you add products
+    const products = [
+      {id:1,title:'Gloss Armor — iPhone 15',price:799,desc:'Slim glossy protective case',img:'',model:'iPhone 15'},
+      {id:2,title:'Matte Shield — Samsung S24',price:749,desc:'Anti-slip matte finish',img:'',model:'Samsung S24'},
+      {id:3,title:'Transparent Flex — Pixel 8',price:699,desc:'Clear flexible TPU cover',img:'',model:'Pixel 8'},
+      {id:4,title:'Canvas Art — iPhone 14',price:899,desc:'Artist-designed print',img:'',model:'iPhone 14'},
+      {id:5,title:'Rugged Bumper — OnePlus 12',price:999,desc:'Heavy-duty shock protection',img:'',model:'OnePlus 12'},
+      {id:6,title:'EcoFiber — Universal',price:549,desc:'Biodegradable fabric-backed case',img:'',model:'Universal'}
+    ];
+
+    // Render product cards
+    const grid = document.getElementById('product-grid');
+    products.forEach(p=>{
+      const card = document.createElement('article');
+      card.className = 'product';
+      card.innerHTML = `
+        <div class="prod-img">${p.img?`<img src="${p.img}" alt="${p.title}" style="max-width:100%;height:100%;object-fit:cover;border-radius:8px">`:'Image'}</div>
+        <h4 class="prod-title">${p.title}</h4>
+        <div class="prod-price">₹${p.price}</div>
+        <div style="color:var(--muted);font-size:13px">${p.model}</div>
+        <div class="prod-meta">
+          <button class="btn" onclick='openModal(${p.id})'>Quick view</button>
+          <button class="cta" style="background:var(--primary);color:white" onclick="addToCart('${p.title}',${p.price})">Buy — ₹${p.price}</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Modal behaviour
+    let currentProduct = null;
+    function openModal(id){
+      const p = products.find(x=>x.id===id);
+      currentProduct = p;
+      document.getElementById('modal-title').innerText = p.title;
+      document.getElementById('modal-desc').innerText = p.desc;
+      document.getElementById('modal-price').innerText = '₹'+p.price;
+      document.getElementById('qty').value = 1;
+      document.getElementById('modal').classList.add('open');
+      document.getElementById('modal').setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      document.getElementById('modal').classList.remove('open');
+      document.getElementById('modal').setAttribute('aria-hidden','true');
+    }
+
+    // Simple cart saved in localStorage
+    function getCart(){
+      return JSON.parse(localStorage.getItem('cc_cart')||'[]');
+    }
+    function saveCart(c){
+      localStorage.setItem('cc_cart',JSON.stringify(c));
+      updateCartCount();
+    }
+    function updateCartCount(){
+      const count = getCart().reduce((s,i)=>s+i.qty,0);
+      document.getElementById('cart-count').innerText = count;
+    }
+    function addToCart(title,price){
+      const cart = getCart();
+      const existing = cart.find(i=>i.title===title);
+      if(existing){ existing.qty += 1; } else { cart.push({title,price,qty:1}); }
+      saveCart(cart);
+      alert('Added to cart — '+title);
+    }
+    function modalAddToCart(){
+      const qty = Number(document.getElementById('qty').value)||1;
+      const cart = getCart();
+      const existing = cart.find(i=>i.title===currentProduct.title);
+      if(existing) existing.qty += qty; else cart.push({title:currentProduct.title,price:currentProduct.price,qty});
+      saveCart(cart); closeModal();
+      alert('Added '+qty+' × '+currentProduct.title+' to cart');
+    }
+
+    // On page load
+    document.getElementById('year').innerText = new Date().getFullYear();
+    updateCartCount();
+
+    // Simple checkout example: this just builds an order summary and opens mailto or PayPal link placeholder.
+    // For production use: integrate Stripe / Razorpay / PayPal checkout.
+    function checkout(){
+      const cart = getCart();
+      if(!cart.length){ alert('Your cart is empty'); return; }
+      const total = cart.reduce((s,i)=>s + i.price * i.qty, 0);
+      // Replace the following with real checkout integration
+      const summary = cart.map(i=>`${i.qty}× ${i.title} — ₹${i.price*i.qty}`).join('\n');
+      const body = `Order summary:\n${summary}\n\nTotal: ₹${total}\n\nCustomer info:\nName:\nPhone:\nAddress:\n`;
+      // Open mail client as a simple order mechanism (not secure). Replace in production.
+      window.location.href = 'mailto:orders@covercraft.example?subject=New order&body='+encodeURIComponent(body);
+    }
+
+    // Attach a quick 'cart' anchor handler
+    document.querySelectorAll('a[href="#cart"]').forEach(el=>el.addEventListener('click',function(e){e.preventDefault();
+      const cart = getCart();
+      if(!cart.length){ alert('Cart is empty'); return; }
+      const total = cart.reduce((s,i)=>s + i.price * i.qty, 0);
+      const lines = cart.map(i=>`${i.qty}× ${i.title} — ₹${i.price*i.qty}`).join('\n');
+      if(confirm(`Your cart:\n${lines}\n\nTotal: ₹${total}\n\nGo to checkout?`)) checkout();
+    }));
+
+  </script>
+</body>
+</html>
